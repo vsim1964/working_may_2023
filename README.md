@@ -111,3 +111,10 @@ $ git config --global alias.br branch
 $ git config --global alias.ci commit
 $ git config --global alias.st status
 ```
+
+## Ветвление в Git
+`$ git branch testing` ===  `$ git checkout -b testing`
+`$ git checkout testing` HEAD переместится на ветку testing.
+`git log --oneline --decorate --graph --all`
+
+Если рабочий каталог либо индекс содержат незафиксированные изменения, конфликтующие с веткой, на которую вы хотите переключиться, то Git не позволит переключить ветки. Лучше всего переключаться из чистого рабочего состояния проекта. Есть способы обойти это (припрятать изменения (stash) или добавить их в последний коммит (amend))
