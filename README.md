@@ -54,3 +54,60 @@ $ git clone https://github.com/libgit2/libgit2
 
 *Фиксация без предварительной индексации*
 `git commit -a -m 'Comment'`
+*Удаление из рабочей папки и из индекса*
+`git rm 1.txt`
+*Переименование файла*
+`git mv file_from file_to`
+
+*Просмотр истории коммитов*
+`$ git log`
+`$ git log -p -2` оказывает разницу (патч), внесённую в 2 коммита
+`$ git log --stat`
+`$ git log --pretty=oneline`
+`$ git log --pretty=format:"%h - %an, %ar : %s"`
+`$ git log --pretty=format:"%h %s" --graph`
+
+*Переносы указателя HEAD*
+Два указателя: имя ветки и HEAD. имя ветки всегда показывает на самый свежий коммит (даже тот, что в работе. Для «движения» указателя HEAD существует команда: git checkout.
+`$ git checkout hash`
+`$ git checkout master`
+*Переносы указателя BRANCH-NAME*
+`$ git checkout -b name`
+*Отследить движение HEAD*
+`$ git reflog`
+
+*Операции отмены*
+`$ git commit --amend`  переделать коммит — внесите изменения, добавьте их в индекс и сделайте коммит ещё раз
+*Отмена индексации файла*
+`$ git reset HEAD <file>`
+*Отмена изменений в файле*
+`$ git checkout -- <file>`
+Git версии 2.23.0 представил новую команду: `git restore`
+`$ git restore --staged CONTRIBUTING.md` для отмены индексации файла.
+`$ git restore --staged CONTRIBUTING.md` Откат изменённого файла
+
+## Работа с удалёнными репозиториями
+
+*Просмотр удалённых репозиториев*
+`$ git remote -v`
+*Добавление удалённых репозиториев*
+`$ git remote add <shortname> <url>:`
+*Получение изменений из удалённого репозитория — Fetch и Pull*
+`$ git fetch [remote-name]`
+`git pull [remote-name]`
+*Отправка изменений в удалённый репозиторий (Push)*
+`$ git push origin master`
+*Просмотр удалённого репозитория*
+`$ git remote show origin`
+*Удаление и переименование удалённых репозиториев*
+`$ git remote rename pb paul`
+`$ git remote remove paul`
+
+## Работа с тегами
+## Псевдонимы в Git
+```bash
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+```
